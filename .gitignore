@@ -1,0 +1,50 @@
+# Игнорировать файлы IDE
+.idea/
+.vscode/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# Игнорировать кэш Python
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Игнорировать виртуальные окружения
+venv/
+env/
+.venv/
+ENV/
+
+# Игнорировать файлы зависимостей
+*.egg-info/
+*.egg
+dist/
+build/
+pip-wheel-metadata/
+
+# Игнорировать логи и временные файлы
+*.log
+*.sqlite
+*.sqlite3
+*.swp
+*.bak
+*.tmp
+
+# Игнорировать Jupyter Notebook
+.ipynb_checkpoints/
+
+# Игнорировать тестовые ковержи
+.coverage
+htmlcov/
+.pytest_cache/
+
+# Игнорировать файлы настроек (если не нужно делиться)
+.env
+.secrets
+*.env.local
+
+# Игнорировать системные файлы
+.DS_Store
+Thumbs.db
