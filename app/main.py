@@ -6,11 +6,12 @@ from bson.errors import InvalidId
 
 
 class MongoTaskRepository:
-    def __init__(self,
-                 mongo_client: MongoClient,
-                 db_name: str = "task_service",
-                 collection_name: str = "tasks"
-                 ):
+    def __init__(
+        self,
+        mongo_client: MongoClient,
+        db_name: str = "task_service",
+        collection_name: str = "tasks"
+    ):
         self.db = mongo_client[db_name]
         self.collection: Collection = self.db[collection_name]
 
@@ -61,7 +62,7 @@ repository = MongoTaskRepository(client)
 task_id = repository.create_task({
     "title": "Пример задачи",
     "description": "Это тестовая задача",
-    "tags": ["важно", "тест"],
+    "tags": ["важно", "второстепенно"],
     "priority": "high"
 })
 print(task_id)
