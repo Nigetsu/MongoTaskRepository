@@ -1,4 +1,3 @@
-from typing import Dict, Optional, List
 from pymongo import MongoClient
 from pymongo.collection import Collection
 from bson import ObjectId
@@ -15,11 +14,11 @@ class MongoTaskRepository:
         self.db = mongo_client[db_name]
         self.collection: Collection = self.db[collection_name]
 
-    def create_task(self, data: Dict) -> str:
+    def create_task(self, data: dict) -> str:
         res = self.collection.insert_one(data)
         return str(res.inserted_id)
 
-    def get_task_by_id(self, task_id: str) -> Optional[dict]:
+    def get_task_by_id(self, task_id: str) -> dict | None:
         try:
             object_id = ObjectId(task_id)
         except InvalidId:
@@ -40,7 +39,7 @@ class MongoTaskRepository:
         res = self.collection.delete_one({"_id": object_id})
         return res.deleted_count > 0
 
-    def aggregate_by_tags(self) -> List[dict]:
+    def aggregate_by_tags(self) -> list[dict]:
         pipeline = [
             {"$unwind": "$tags"},
             {"$group": {
